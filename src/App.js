@@ -1,5 +1,8 @@
 import React, { Component } from "react";
+import { Route, Routes } from "react-router-dom";
+import axios from "axios";
 import logo from "./logo.svg";
+import NavBar from "./components/navbar";
 import "./App.css";
 import Card from "./components/card";
 import RanButton from "./components/ranButton";
