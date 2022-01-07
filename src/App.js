@@ -26,6 +26,7 @@ class App extends Component {
       <React.Fragment>
         <main class="container">
           <p>{this.state.bulbasaur}</p>
+          <RanButton />
           <Card />
         </main>
       </React.Fragment>
