@@ -8,6 +8,7 @@ import Card from "./components/card";
 import RanButton from "./components/ranButton";
 
 class App extends Component {
+<<<<<<< HEAD
   render() {
     return (
       <div className="App">
@@ -29,6 +30,21 @@ class App extends Component {
       </div>
     );
   }
+=======
+	render() {
+		return (
+			<React.Fragment>
+				<NavBar />
+				<main class="container">
+					<Routes>
+						<Route path="/pokemon" component={Pokemon} />
+					</Routes>
+					<Card />
+				</main>
+			</React.Fragment>
+		);
+	}
+>>>>>>> 05b92721aa751c76732ecc2daf41247b8161bfcd
 }
 
 export default App;
