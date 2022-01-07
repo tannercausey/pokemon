@@ -2,12 +2,14 @@ import React, { Component } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import Card from "./components/card";
+import RanButton from "./components/ranButton";
 
 class App extends Component {
   render() {
     return (
       <div className="App">
         <header className="App-header">
+          <RanButton />
           <Card />
           {/* <img src={logo} className="App-logo" alt="logo" />
 					<p>
