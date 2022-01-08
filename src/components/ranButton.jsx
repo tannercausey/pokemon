@@ -14,6 +14,9 @@ class RanButton extends Component {
 		this.setState({ number: Math.round(this.state.number + rand) });
 		console.log(this.state.number);
 	};
+	getRandNum = () => {
+		let number = Math.floor(Math.random() * max) + 1; // Math*random
+	};
 
 	render() {
 		return (
