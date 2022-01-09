@@ -5,7 +5,6 @@ import NavBar from "./components/navbar";
 import Pokemon from "./components/pokemon";
 import "./App.css";
 import Card from "./components/card";
-import RanButton from "./components/ranButton";
 
 class App extends Component {
 	render() {
