@@ -7,6 +7,7 @@ class Pokemon extends Component {
 	state = {
 		pokemon: {
 			number: 0, //1,
+			type: [],
 			name: "", // "Bulbasaur",
 			pokedex: "", // "A strange seed was planted on its back at birth. The plant sprouts and grows with this POKéMON.",
 			spriteUrl: "", //"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
@@ -14,37 +15,12 @@ class Pokemon extends Component {
 	};
 	getPokemon = async () => {
 		const number = getRandomPokedexNumber();
-		let { data: allpokemons } = await axios.get(apiEndpoint + "pokemon?limit=1118");
-		allpokemons = allpokemons.results;
-		for (let pokemon of allpokemons) {
-			console.log(pokemon.name);
-		}
 		const { data: pokedexData } = await axios.get(apiEndpoint + "pokemon-species/" + number);
 		const pokedexEntry = this.getENdexEntry(pokedexData);
 		const { data: spriteData } = await axios.get(apiEndpoint + "pokemon/" + number);
-		const name = this.capitalize(pokedexData.name);
-		/* switch (name) {
-			case "nidoran-f":
-				name = "Nidoran ♀";
-				break;
-			case "nidoran-m":
-				name = "Nidoran ♂";
-			case "mime-jr":
-			case "porygon-z":
-			case "type-null":
-			case "jangmo-o":
-			case "hakamo-o":
-			case "kommo-o":
-			case "tapu-koko":
-			case "tapu-lele":
-			case "tapu-bulu":
-			case "tapu-fini":
-			case "mr-rime":
-			
-		} */
 		const pokemon = {
 			number: number,
-			name: name,
+			name: this.formatName(pokedexData.name),
 			pokedex: pokedexEntry.replaceAll("\n", " ").replaceAll("\f", " "),
 			spriteUrl: spriteData.sprites.other["official-artwork"].front_default,
 		};
@@ -65,8 +41,20 @@ class Pokemon extends Component {
 		const pokemon = await this.getPokemon();
 		this.setState({ pokemon });
 	};
-	capitalize(str) {
-		return str.charAt(0).toUpperCase() + str.slice(1);
+	formatName(name) {
+		return (name === "nidoran-f") ? "Nidoran ♀" :
+		(name === "nidoran-m") ? "Nidoran ♂" :
+		(name === "farfetchd") ? "Farfetch'd":
+		(name === "mime-jr") ? "Mime Jr." :
+		(name === "porygon-z") ? "Porygon-Z" :
+		(name === "flabebe") ? "Flabébé" :
+		(name === "tapu-koko") ? "Tapu Koko" :
+		(name === "tapu-lele") ? "Tapu Lele" :
+		(name === "tapu-bulu") ? "Tapu Bulu" :
+		(name === "tapu-fini") ? "Tapu Fini" :
+		(name === "type-null") ? "Type: Null" :
+		(name === "mr-rime") ? "Mr. Rime" :
+		name.charAt(0).toUpperCase() + name.slice(1);
 	}
 	render() {
 		const { name, number, pokedex, spriteUrl } = this.state.pokemon;
@@ -75,10 +63,10 @@ class Pokemon extends Component {
 				<button onClick={this.handleNewPokemonClick} className="btn btn-primary">
 					Get Random Pokemon
 				</button>
-				<div className="card" style={{ width: 18 + "rem" }}>
+				<div className="card" style={{ width: 28 + "rem" }}>
 					<img className="card-img-top" src={spriteUrl} alt="sprite" />
 					<div className="card-body">
-						<h5 className="card-title">{name}</h5>
+						<h5 className="card-title">{name}</h5>{}
 						{<p className="card-text">{pokedex}</p>}
 					</div>
 				</div>

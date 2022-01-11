@@ -3,8 +3,8 @@ import { Link, NavLink } from "react-router-dom";
 
 const NavBar = () => {
 	return (
-		<nav className="navbar navbar-expand-lg navbar-light bg-light">
-			<Link className="navbar-brand" to="/">
+		<nav className="navbar navbar-expand-lg navbar-light bg-light" aria-label = "navbar">
+			<Link className="navbar-brand" to="/pokemon">
 				Pokemon
 			</Link>
 			<button
@@ -19,7 +19,7 @@ const NavBar = () => {
 			</button>
 			<div className="collapse navbar-collapse" id="navbarNavAltMarkup">
 				<div className="navbar-nav">
-					<NavLink className="nav-item nav-link" to="/pokemon">
+					<NavLink className="nav-item nav-link" to="/">
 						Pokemon
 					</NavLink>
 				</div>
