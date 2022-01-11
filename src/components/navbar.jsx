@@ -5,7 +5,7 @@ const NavBar = () => {
 	return (
 		<nav className="navbar navbar-expand-lg navbar-light bg-light" aria-label = "navbar">
 			<Link className="navbar-brand" to="/pokemon">
-				Pokemon
+				Pokémon
 			</Link>
 			<button
 				className="navbar-toggler"

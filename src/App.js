@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 //import { Route, Routes } from "react-router-dom";
-import logo from "./logo.svg";
+//import logo from "./logo.svg";
 import NavBar from "./components/navbar";
 import Pokemon from "./components/pokemon";
 import "./App.css";
